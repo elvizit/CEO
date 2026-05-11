@@ -28,14 +28,11 @@
             min-height: 100dvh;
             font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
             background:
                 radial-gradient(circle at 10% 10%, rgba(127, 102, 255, 0.34) 0%, transparent 45%),
                 radial-gradient(circle at 90% 80%, rgba(51, 199, 255, 0.25) 0%, transparent 42%),
                 linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 100%);
-            padding: 24px;
+            padding: 30px 40px 40px;
             overflow-x: hidden;
             overflow-y: auto;
         }
@@ -64,7 +61,7 @@
             background: #6d4eff;
             top: -80px;
             left: -70px;
-            animation: floatA 13s ease-in-out infinite alternate;
+            animation: float 13s ease-in-out infinite alternate;
         }
 
         body::after {
@@ -84,12 +81,57 @@
 
 @media (max-width: 767px) {
     .certificates-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 8px 0 6px 6px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .certificates-grid::-webkit-scrollbar {
         display: none;
+    }
+
+    .cert-card {
+        min-width: 160px;
+        width: 160px;
+        flex: 0 0 auto;
+        border-radius: 18px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .cert-preview {
+        aspect-ratio: 1.15;
+        border-radius: 12px;
+    }
+
+    .cert-preview img {
+        opacity: 1;
+    }
+
+    .cert-name {
+        font-size: 10px;
+        line-height: 1.3;
+        padding: 0 4px;
+    }
+
+    .cert-download {
+        font-size: 11px;
+        padding: 7px 10px;
+        border-radius: 12px;
+    }
+
+    .cert-card:hover {
+        transform: none;
     }
 }
 
+
 @media (min-width: 768px) {
     .certificates-grid {
+        display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 14px;
     }
@@ -189,8 +231,8 @@
     cursor: pointer;
 }
         .card {
-            width: min(100%, 430px);
-            margin: auto 0;
+            width: min(100%, 1400px);
+            margin: 0 auto;
             border-radius: 28px;
             overflow: hidden;
             backdrop-filter: blur(14px);
@@ -204,33 +246,19 @@
 
         @media (max-width: 767px) {
             .card {
-                width: 280px;
-                max-width: 90vw;
+                width: 100%;
+                max-width: 360px;
                 margin: 0 auto 16px;
                 border-radius: 18px;
             }
         }
 
-        @media (min-width: 768px) {
-            .card {
-                width: min(100%, 600px);
-                margin: 40px auto;
-            }
-        }
-
-        @media (max-width: 767px) {
+        @media (min-width: 1024px) {
             .card {
                 width: 100%;
-                max-width: 360px;
+                max-width: 1240px;
                 margin: 0 auto;
-                border-radius: 20px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .card {
-                width: min(100%, 500px);
-                margin: 40px auto;
+                border-radius: 32px;
             }
         }
 
@@ -249,36 +277,70 @@
         }
 
         .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
             position: relative;
-            padding: 28px 24px 18px;
+            padding: 24px;
             background:
                 linear-gradient(130deg, rgba(127, 102, 255, 0.45) 0%, rgba(51, 199, 255, 0.2) 55%, rgba(255, 255, 255, 0.02) 100%),
-                rgba(10, 10, 35, 0.4);
+                rgba(10, 10, 35, 0.45);
+        }
+
+        .hero-banner {
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            min-height: 280px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .profile-text {
+            display: grid;
+            gap: 10px;
         }
 
         @media (max-width: 767px) {
             .hero {
-                padding: 14px 12px 10px;
+                padding: 18px 14px 16px;
+            }
+
+            .hero-banner {
+                min-height: 220px;
             }
         }
 
         @media (min-width: 768px) {
             .hero {
-                padding: 36px 28px 24px;
+                grid-template-columns: 420px 1fr;
+                padding: 32px;
+                align-items: center;
             }
-        }
 
-        @media (max-width: 767px) {
-            .hero {
-                padding: 20px 16px 14px;
+            .hero-banner {
+                min-height: 360px;
             }
         }
 
         .hero::after {
             content: "CEO";
             position: absolute;
-            right: 20px;
-            top: 16px;
+            right: 24px;
+            top: 24px;
             font-size: 42px;
             font-weight: 800;
             letter-spacing: 0.08em;
@@ -301,13 +363,18 @@
 
         .status-wrap {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            width: 100%;
             gap: 8px;
+            position: relative;
+        }
+
+        .status-pill {
+            flex-shrink: 0;
         }
 
         .founder-badge {
-            display: inline-flex;
+        
             align-items: center;
             gap: 6px;
             font-size: 11px;
@@ -320,6 +387,162 @@
             border: 1px solid rgba(255, 222, 147, 0.35);
             background: linear-gradient(135deg, rgba(255, 217, 128, 0.26), rgba(255, 168, 77, 0.17));
             box-shadow: 0 6px 14px rgba(255, 187, 0, 0.15);
+            white-space: nowrap;
+        }
+
+        
+        @media (min-width: 1024px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 32px;
+                gap: 20px;
+            }
+
+            .status-wrap {
+                order: 1;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .status-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .founder-badge {
+                position: static;
+                right: auto;
+                top: auto;
+                transform: none;
+            }
+
+            .avatar {
+                order: 2;
+                position: static;
+                left: auto;
+                top: auto;
+                transform: none;
+                width: 120px;
+                height: 120px;
+                margin: 0 auto;
+            }
+
+            .profile {
+                order: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 12px;
+                margin-top: 0;
+            }
+
+            .profile > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .name {
+                font-size: 2.2rem;
+                margin-bottom: 8px;
+            }
+
+            .role, .ceo-title, .meta-row {
+                margin: 4px 0;
+            }
+
+            .meta-row {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 24px;
+                gap: 20px;
+            }
+
+            .status-wrap {
+                order: -1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+                position: relative;
+            }
+
+            .status-pill {
+                flex-shrink: 0;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .founder-badge {
+                position: static;
+
+                right: auto;
+                top: auto;
+                transform: none;
+                
+                display: inline-flex;
+            }
+
+            .profile {
+                order: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 0;
+                gap: 12px;
+            }
+
+            .avatar {
+                position: static;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin: 0;
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                order: 1;
+            }
+
+            .name {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .role, .ceo-title, .meta-row {
+                margin: 4px 0;
+            }
+
+            .meta-row {
+                justify-content: center;
+            }
         }
 
         .status-pill::before {
@@ -395,13 +618,6 @@
             }
         }
 
-        @media (min-width: 768px) {
-            .avatar {
-                width: 80px;
-                height: 80px;
-            }
-        }
-
         .avatar img {
             width: 100%;
             height: 100%;
@@ -435,12 +651,6 @@
             }
         }
 
-        @media (min-width: 768px) {
-            .name {
-                font-size: clamp(1.6rem, 2.2vw, 1.9rem);
-            }
-        }
-
         .role {
             margin: 6px 0 0;
             color: var(--text-muted);
@@ -463,12 +673,6 @@
         @media (max-width: 480px) {
             .role {
                 font-size: 13px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .role {
-                font-size: 15px;
             }
         }
 
@@ -517,12 +721,6 @@
         @media (min-width: 768px) {
             .content {
                 padding: 24px 28px 32px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .content {
-                padding: 14px 16px 18px;
             }
         }
 
@@ -845,12 +1043,6 @@
             }
         }
 
-        @media (min-width: 768px) {
-            .grid-item {
-                min-height: 88px;
-            }
-        }
-
         .grid-item:hover {
             transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.11);
@@ -871,13 +1063,6 @@
         .links {
             display: grid;
             gap: 10px;
-        }
-
-        @media (max-width: 767px) {
-            .links ~ p,
-            .links ~ div {
-                display: none;
-            }
         }
 
         .social-link {
@@ -1229,14 +1414,21 @@
 </div>
 
 <script>
+    function openCert(src) {
+        const modal = document.getElementById('cert-modal');
+        const modalImg = document.getElementById('modal-img');
+        modalImg.src = src;
+        modal.style.display = 'flex';
+    }
+
     (function () {
-        var saveBtn = document.getElementById("saveContactBtn");
-        var contactHint = document.getElementById("contactHint");
+        const saveBtn = document.getElementById("saveContactBtn");
+        const contactHint = document.getElementById("contactHint");
         if (!saveBtn || !contactHint) return;
 
-        var ua = navigator.userAgent || "";
-        var isAndroid = /Android/i.test(ua);
-        var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        const ua = navigator.userAgent || "";
+        const isAndroid = /Android/i.test(ua);
+        const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
         if (isAndroid) {
             saveBtn.textContent = "⬇️ Сохранить контакт (.vcf)";
