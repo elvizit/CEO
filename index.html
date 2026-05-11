@@ -40,6 +40,13 @@
             overflow-y: auto;
         }
 
+        @media (max-width: 767px) {
+            body {
+                align-items: flex-end;
+                padding: 10px;
+            }
+        }
+
         body::before,
         body::after {
             content: "";
@@ -73,6 +80,19 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin-bottom: 16px;
+}
+
+@media (max-width: 767px) {
+    .certificates-grid {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 14px;
+    }
 }
 
 .cert-card {
@@ -182,6 +202,38 @@
             animation: cardIn 0.7s cubic-bezier(0.2, 0.8, 0.25, 1) both;
         }
 
+        @media (max-width: 767px) {
+            .card {
+                width: 280px;
+                max-width: 90vw;
+                margin: 0 auto 16px;
+                border-radius: 18px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                width: min(100%, 600px);
+                margin: 40px auto;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .card {
+                width: 100%;
+                max-width: 360px;
+                margin: 0 auto;
+                border-radius: 20px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                width: min(100%, 500px);
+                margin: 40px auto;
+            }
+        }
+
         .card::before {
             content: "";
             position: absolute;
@@ -202,6 +254,24 @@
             background:
                 linear-gradient(130deg, rgba(127, 102, 255, 0.45) 0%, rgba(51, 199, 255, 0.2) 55%, rgba(255, 255, 255, 0.02) 100%),
                 rgba(10, 10, 35, 0.4);
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding: 14px 12px 10px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 36px 28px 24px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding: 20px 16px 14px;
+            }
         }
 
         .hero::after {
@@ -268,6 +338,31 @@
             margin-top: 18px;
         }
 
+        @media (max-width: 767px) {
+            .profile {
+                gap: 10px;
+                margin-top: 8px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .profile {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile {
+                gap: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .profile {
+                gap: 18px;
+            }
+        }
+
         .avatar {
             width: 72px;
             height: 72px;
@@ -276,6 +371,35 @@
             box-shadow: 0 10px 24px rgba(14, 17, 41, 0.55);
             overflow: hidden;
             flex-shrink: 0;
+        }
+
+        @media (max-width: 767px) {
+            .avatar {
+                width: 48px;
+                height: 48px;
+                border-width: 1.5px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .avatar {
+                width: 88px;
+                height: 88px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .avatar {
+                width: 64px;
+                height: 64px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .avatar {
+                width: 80px;
+                height: 80px;
+            }
         }
 
         .avatar img {
@@ -292,10 +416,60 @@
             letter-spacing: -0.02em;
         }
 
+        @media (max-width: 767px) {
+            .name {
+                font-size: 1rem;
+                line-height: 1.1;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .name {
+                font-size: clamp(1.6rem, 2.2vw, 1.9rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .name {
+                font-size: clamp(1.6rem, 2.2vw, 1.9rem);
+            }
+        }
+
         .role {
             margin: 6px 0 0;
             color: var(--text-muted);
             font-size: 14px;
+        }
+
+        @media (max-width: 767px) {
+            .role {
+                font-size: 11px;
+                margin: 2px 0 0;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .role {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .role {
+                font-size: 13px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .role {
+                font-size: 15px;
+            }
         }
 
         .ceo-title {
@@ -323,8 +497,33 @@
             padding: 6px 10px;
         }
 
+        @media (max-width: 767px) {
+            .meta-chip {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
+
         .content {
             padding: 18px 24px 24px;
+        }
+
+        @media (max-width: 767px) {
+            .content {
+                padding: 10px 12px 14px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                padding: 24px 28px 32px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .content {
+                padding: 14px 16px 18px;
+            }
         }
 
         .highlight-panel {
@@ -346,6 +545,18 @@
             margin: 14px 0 16px;
             display: grid;
             gap: 10px;
+        }
+
+        @media (max-width: 767px) {
+            .projects {
+                display: none;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .projects {
+                gap: 12px;
+            }
         }
 
         .project-item {
@@ -408,6 +619,47 @@
             opacity: 0.9;
         }
 
+        @media (max-width: 767px) {
+            .section-title {
+                font-size: 11px;
+                margin: 8px 0 6px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 13px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+        }
+
+        .content > .section-title:nth-last-of-type(-n+2) {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .content > .section-title:nth-last-of-type(-n+2) {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 11px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 13px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+        }
+
         .save-btn {
             display: inline-flex;
             align-items: center;
@@ -427,6 +679,33 @@
             transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
             position: relative;
             overflow: hidden;
+            font-size: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .save-btn {
+                min-height: 40px;
+                font-size: 13px;
+                padding: 10px 12px;
+                margin: 0 0 12px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .save-btn {
+                min-height: 54px;
+                font-size: 15px;
+                padding: 16px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .save-btn {
+                min-height: 44px;
+                font-size: 14px;
+                padding: 12px 14px;
+            }
         }
 
         .save-btn:hover {
@@ -469,6 +748,33 @@
             border: 1px solid rgba(255, 255, 255, 0.24);
             background: rgba(255, 255, 255, 0.09);
             transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+            font-size: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .call-btn {
+                min-height: 40px;
+                font-size: 13px;
+                padding: 10px 12px;
+                margin: 0 0 10px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .call-btn {
+                min-height: 54px;
+                font-size: 15px;
+                padding: 16px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .call-btn {
+                min-height: 44px;
+                font-size: 14px;
+                padding: 12px 14px;
+            }
         }
 
         .call-btn:hover {
@@ -492,6 +798,28 @@
             margin-bottom: 14px;
         }
 
+        @media (max-width: 767px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
         .grid-item {
             text-decoration: none;
             color: #eaf0ff;
@@ -501,6 +829,26 @@
             min-height: 76px;
             padding: 14px 12px;
             transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+        }
+
+        @media (max-width: 767px) {
+            .grid-item {
+                min-height: 60px;
+                padding: 10px 10px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid-item {
+                min-height: 88px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid-item {
+                min-height: 88px;
+            }
         }
 
         .grid-item:hover {
@@ -525,6 +873,13 @@
             gap: 10px;
         }
 
+        @media (max-width: 767px) {
+            .links ~ p,
+            .links ~ div {
+                display: none;
+            }
+        }
+
         .social-link {
             display: flex;
             align-items: center;
@@ -538,6 +893,21 @@
             padding: 12px 14px;
             font-weight: 520;
             transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+        }
+
+        @media (max-width: 767px) {
+            .social-link {
+                min-height: 50px;
+                padding: 10px 12px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .social-link {
+                min-height: 62px;
+                padding: 14px 16px;
+            }
         }
 
         .social-link:hover {
@@ -570,6 +940,18 @@
 
         .social-title {
             font-size: 14px;
+        }
+
+        @media (max-width: 767px) {
+            .social-title {
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .social-title {
+                font-size: 15px;
+            }
         }
 
         .social-subtitle {
@@ -666,39 +1048,6 @@
             }
             to {
                 transform: translate(-50px, -30px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .content,
-            .hero {
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-
-            .status-wrap {
-                flex-wrap: wrap;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .meta-row {
-                gap: 6px;
-            }
-
-            .meta-chip {
-                font-size: 11px;
-            }
-
-            .project-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .contact-hint {
-                font-size: 11px;
             }
         }
 
@@ -838,20 +1187,36 @@
 <div class="certificates-grid">
     <!-- Сертификат 1 -->
     <div class="cert-card">
-        <div class="cert-preview" onclick="openCert('./cert1_preview.jpg')">
-            <img src="./cert1_preview.jpg" alt="Certificate">
+        <div class="cert-preview" onclick="openCert('./1.png')">
+            <img src="./1.png" alt="Certificate">
         </div>
-        <span class="cert-name">IT Management</span>
-        <a href="./certificate1.pdf" class="cert-download" download>Скачать PDF</a>
+        <span class="cert-name">C++</span>
+        <a href="./C--_Essentials_1_certificate_chrlelewis-gmail-com_90d66dc5-52ab-4aae-b026-b28a16fa3bea.pdf" class="cert-download" download>Скачать PDF</a>
     </div>
 
     <!-- Сертификат 2 -->
     <div class="cert-card">
-        <div class="cert-preview" onclick="openCert('./cert2_preview.jpg')">
-            <img src="./cert2_preview.jpg" alt="Certificate">
+        <div class="cert-preview" onclick="openCert('./4.png')">
+            <img src="./4.png" alt="Certificate">
         </div>
-        <span class="cert-name">Fullstack Dev</span>
-        <a href="./certificate2.pdf" class="cert-download" download>Скачать PDF</a>
+        <span class="cert-name">Back-End</span>
+        <a href="./Бэк Энд.pdf" class="cert-download" download>Скачать PDF</a>
+    </div>
+
+
+        <div class="cert-card">
+        <div class="cert-preview" onclick="openCert('./3.png')">
+            <img src="./3.png" alt="Certificate">
+        </div>
+        <span class="cert-name">Front-End</span>
+        <a href="./Фронт-энд.pdf" class="cert-download" download>Скачать PDF</a>
+    </div>
+        <div class="cert-card">
+        <div class="cert-preview" onclick="openCert('./2.png')">
+            <img src="./2.png" alt="Certificate">
+        </div>
+        <span class="cert-name">System Administrator</span>
+        <a href="./Сист Админ.pdf" class="cert-download" download>Скачать PDF</a>
     </div>
 </div>
 
